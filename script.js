@@ -72,6 +72,26 @@ const searchMovies2 = function (name, enter) {
     return search
 }
 
+//validate
+const RECURSION = function () {
+    const movieName = prompt("Please, enter movie name")
+    if(movieName.length < 2){
+            alert("Incorrect name, try again ! ")
+            RECURSION()
+    }else{
+        const movieYear = prompt("Please, enter movie release date")
+        if(movieYear.length == 4 && movieYear > 1900 && movieYear < 2017){
+            program.movies.push({
+                "name": movieName,
+                "year": movieYear
+            })
+        }else{
+            alert("Incorrect data, try again ! ")
+            RECURSION()
+        }
+    }
+}
+
 const invite = confirm("Enter the database?");
 
 alert("To see a list of available commands, enter the: commands list");

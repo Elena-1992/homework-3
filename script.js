@@ -49,7 +49,7 @@ const parseMovies = function (param) {
 }
 
 const searchMovies = function (year, entered) {
-    let search = [];
+    let search = []
     for(let item of year) {
         if(entered == item.year){
             search.push('\n name : '+ item.name + ' year : '+item.year)
@@ -61,7 +61,7 @@ const searchMovies = function (year, entered) {
 }
 
 const searchMovies2 = function (name, enter) {
-    let search = [];
+    let search = []
     for(let item of name) {
         if(enter == item.name){
             search.push('\n name : '+ item.name + ' year : '+item.year)

@@ -35,3 +35,46 @@ const program = {
 const invite = confirm("Enter the database?");
 
 alert("To see a list of available commands, enter the: commands list");
+
+if(invite == true){
+    do{
+        const cmd = prompt ("Enter the command")
+
+        if(cmd == "exit") break
+
+        switch (cmd) {
+            case "add movies": {
+                RECURSION()
+                break
+            }
+            case "movies list": {
+                alert(parseMovies(program.movies))
+                break
+            }
+            case "commands list": {
+                alert(parseCommands(program.commands))
+                break
+            }
+            case "quantity movies": {
+                alert("Number of films in the database: " + Object.keys( program.movies ).length )
+                break
+            }
+            case "search by date": {
+                let entered = prompt("Enter year")
+                alert(searchMovies(program.movies, entered))
+                break
+            }
+            case "search by name": {
+                let enter  = prompt("Enter name")
+                alert(searchMovies2(program.movies, enter))
+                break
+            }
+            default:
+                alert(cmd + " no found")
+                break
+        }
+    }while(true)
+
+}else{
+    alert("God by")
+}

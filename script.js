@@ -32,6 +32,46 @@ const program = {
     ]
 }
 
+const parseCommands = function (data) {
+    let result = []
+    for(let item of data) {
+        result.push('\n command: '+ item.command + " - " + item.description)
+    }
+    return result
+}
+
+const parseMovies = function (param) {
+    let allMov = []
+    for(let item of param) {
+        allMov.push('\n name : '+ item.name + ' year : '+item.year)
+    }
+    return allMov
+}
+
+const searchMovies = function (year, entered) {
+    let search = [];
+    for(let item of year) {
+        if(entered == item.year){
+            search.push('\n name : '+ item.name + ' year : '+item.year)
+        }else{
+            search.push("no found")
+        }
+    }
+    return search
+}
+
+const searchMovies2 = function (name, enter) {
+    let search = [];
+    for(let item of name) {
+        if(enter == item.name){
+            search.push('\n name : '+ item.name + ' year : '+item.year)
+        }else{
+            search.push("no found")
+        }
+    }
+    return search
+}
+
 const invite = confirm("Enter the database?");
 
 alert("To see a list of available commands, enter the: commands list");

@@ -54,7 +54,7 @@ const searchMovies = function (year, entered) {
         if(entered == item.year){
             search.push('\n name : '+ item.name + ' year : '+item.year)
         }else{
-            search.push("no found")
+            search.push("no found !")
         }
     }
     return search
@@ -66,18 +66,17 @@ const searchMovies2 = function (name, enter) {
         if(enter == item.name){
             search.push('\n name : '+ item.name + ' year : '+item.year)
         }else{
-            search.push("no found")
+            search.push("no found !")
         }
     }
     return search
 }
 
-//validate
-const RECURSION = function () {
+const validate = function () {
     const movieName = prompt("Please, enter movie name")
     if(movieName.length < 2){
             alert("Incorrect name, try again ! ")
-            RECURSION()
+            validate()
     }else{
         const movieYear = prompt("Please, enter movie release date")
         if(movieYear.length == 4 && movieYear > 1900 && movieYear < 2017){
@@ -87,14 +86,14 @@ const RECURSION = function () {
             })
         }else{
             alert("Incorrect data, try again ! ")
-            RECURSION()
+            validate()
         }
     }
 }
 
 const invite = confirm("Enter the database?");
 
-alert("To see a list of available commands, enter the: commands list");
+alert("To see a list of available commands, enter : commands list");
 
 if(invite == true){
     do{
@@ -104,7 +103,7 @@ if(invite == true){
 
         switch (cmd) {
             case "add movies": {
-                RECURSION()
+                validate()
                 break
             }
             case "movies list": {
@@ -136,5 +135,5 @@ if(invite == true){
     }while(true)
 
 }else{
-    alert("God by")
+    alert("Good by")
 }

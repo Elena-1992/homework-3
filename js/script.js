@@ -32,67 +32,6 @@ const program = {
     ]
 }
 
-const parseCommands = function (data) {
-    let result = []
-    for(let item of data) {
-        result.push('\n command: '+ item.command + " - " + item.description)
-    }
-    return result
-}
-
-const parseMovies = function (param) {
-    let allMov = []
-    for(let item of param) {
-        allMov.push('\n name : '+ item.name + ' year : '+item.year)
-    }
-    return allMov
-}
-
-const searchMovies = function (year, entered) {
-    let search = []
-    for(let item of year) {
-        if(entered == item.year){
-            search.push('\n name : '+ item.name + ' year : '+item.year)
-        }else{
-            search.push("no found")
-        }
-    }
-    return search
-}
-
-const searchMovies2 = function (name, enter) {
-    let search = []
-    for(let item of name) {
-        if(enter == item.name){
-            search.push('\n name : '+ item.name + ' year : '+item.year)
-        }else{
-            search.push("no found")
-        }
-    }
-    return search
-}
-
-
-//validate
-const RECURSION = function () {
-    const movieName = prompt("Please, enter movie name")
-    if(movieName.length < 2){
-            alert("Incorrect name, try again ! ")
-            RECURSION()
-    }else{
-        const movieYear = prompt("Please, enter movie release date")
-        if(movieYear.length == 4 && movieYear > 1900 && movieYear < 2017){
-            program.movies.push({
-                "name": movieName,
-                "year": movieYear
-            })
-        }else{
-            alert("Incorrect data, try again ! ")
-            RECURSION()
-        }
-    }
-}
-
 const invite = confirm("Enter the database?");
 
 alert("To see a list of available commands, enter the: commands list");
@@ -122,12 +61,12 @@ if(invite == true){
             }
             case "search by date": {
                 let entered = prompt("Enter year")
-                alert(searchMovies(program.movies, entered))
+                alert(search(program.movies, entered, "year"))
                 break
             }
             case "search by name": {
-                let enter  = prompt("Enter name")
-                alert(searchMovies2(program.movies, enter))
+                let entered  = prompt("Enter name")
+                alert(search(program.movies, entered, "name" ))
                 break
             }
             default:

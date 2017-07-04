@@ -14,19 +14,32 @@ const parseMovies = function (param) {
     return allMov
 }
 
+// const search = function (movies, entered, type) {
+//     let result = []
+//     if(type == "year"){
+//         for(let item of movies) {
+//             if(entered == item.year){
+//                 result.push('\n name : '+ item.name + ' year : '+item.year)
+//             }
+//         }
+//     }else{
+//         for(let item of movies) {
+//             if(entered == item.name){
+//                 result.push('\n name : '+ item.name + ' year : '+item.year)
+//             }
+//         }
+//     }
+//     if(result.length < 1){
+//         result.push("not found !")
+//     }
+//     return result
+//}
+
 const search = function (movies, entered, type) {
     let result = []
-    if(type == "year"){
-        for(let item of movies) {
-            if(entered == item.year){
-                result.push('\n name : '+ item.name + ' year : '+item.year)
-            }
-        }
-    }else{
-        for(let item of movies) {
-            if(entered == item.name){
-                result.push('\n name : '+ item.name + ' year : '+item.year)
-            }
+    for(let item of movies){
+        if (entered == item[type]){
+             result.push('\n name : '+ item.name + ' year : '+item.year)
         }
     }
     if(result.length < 1){
